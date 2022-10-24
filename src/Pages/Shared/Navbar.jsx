@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from '../../Images/logo.png'
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -9,9 +10,12 @@ function Navbar() {
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
+            <div className="flex">
+            <img className="w-8 mr-4 rounded-full" src={logo} alt="" />
             <Link to="/">
               <h2 className="text-2xl font-bold ">My Lesson</h2>
             </Link>
+            </div>
             <div className="md:hidden">
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -61,25 +65,58 @@ function Navbar() {
                 <Link to="/">Home</Link>
               </li>
               <li className="">
+                <Link to="/">Course</Link>
+              </li>
+              <li className="">
                 <Link to="/blog">Blog</Link>
               </li>
               <li className="">
-                <Link to="/feature">Feature</Link>
+                <Link to="/feature">FAQ</Link>
               </li>
               <li className="">
                 <Link to="/contact">Contact US</Link>
               </li>
+              <li className="">
+                <label
+                  htmlFor="Toggle2"
+                  className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+                >
+                  <span>This</span>
+                  <span className="relative">
+                    <input
+                      id="Toggle2"
+                      type="checkbox"
+                      className="hidden peer"
+                    />
+                    <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-violet-400"></div>
+                    <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto dark:bg-violet-400"></div>
+                  </span>
+                  <span>That</span>
+                </label>
+              </li>
+
+
+
+            {/* extra */}
+            <div className="mt-3 space-y-2 hidden md:block">
+              <Link
+                to="/login"
+                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+              >
+                Login
+              </Link>
+              </div>
             </ul>
 
+
+
             <div className="mt-3 space-y-2 md:hidden">
-
-            <Link
-                  to="/login"
-                  className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                >
-                  Login
-                </Link>
-
+              <Link
+                to="/login"
+                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+              >
+                Login
+              </Link>
 
               {/* {user ? (
                 <>
