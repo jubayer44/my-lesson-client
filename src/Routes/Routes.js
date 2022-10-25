@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import Blog from "../Pages/Blog";
 import Checkout from "../Pages/Checkout";
+import ContactUs from "../Pages/ContactUs";
 import CourseDetails from "../Pages/CourseDetails";
 import Courses from "../Pages/Courses";
 import ErrorPage from "../Pages/ErrorPage";
+import FAQ from "../Pages/FAQ";
 import { Home } from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
         {
           path: "/checkout",
           element: <Checkout/>
+        },
+        {
+          path: "/contact",
+          element: <ContactUs/>,
+        },
+        {
+          path: "/faq",
+          element: <FAQ/>,
+        },
+        {
+          path: "blog",
+          element: <Blog/>,
         }
     ]
   },

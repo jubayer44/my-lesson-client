@@ -71,7 +71,7 @@ function Navbar() {
                 <Link to="/blog">Blog</Link>
               </li>
               <li className="">
-                <Link to="/feature">FAQ</Link>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li className="">
                 <Link to="/contact">Contact US</Link>
