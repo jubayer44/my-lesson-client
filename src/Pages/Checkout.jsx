@@ -14,7 +14,7 @@ const Checkout = () => {
       </div>
       <div className="container p-12 mx-auto">
         <div className="flex flex-col-reverse w-full px-0 mx-auto md:flex-row">
-          <div className="flex flex-col md:w-full">
+          <div className="flex mt-10 md:m-0 flex-col md:w-full">
             <h2 className="mb-4 font-bold md:text-xl text-heading ">
               Credit Card Information
             </h2>

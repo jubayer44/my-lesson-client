@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from '../../Images/logo.png'
+import { AuthContext } from "../../Context/AuthProvider";
+import logo from "../../Images/logo.png";
 
 function Navbar() {
+  const {user, logOut} = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
+
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {})
+    .catch(() => {})
+  }
+
+
+
 
   return (
     <nav className="w-full shadow">
@@ -11,10 +23,10 @@ function Navbar() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <div className="flex">
-            <img className="w-8 mr-4 rounded-full" src={logo} alt="" />
-            <Link to="/">
-              <h2 className="text-2xl font-bold ">My Lesson</h2>
-            </Link>
+              <img className="w-8 mr-4 rounded-full" src={logo} alt="" />
+              <Link to="/">
+                <h2 className="text-2xl font-bold ">My Lesson</h2>
+              </Link>
             </div>
             <div className="md:hidden">
               <button
@@ -76,7 +88,7 @@ function Navbar() {
               <li className="">
                 <Link to="/contact">Contact US</Link>
               </li>
-              <li className="">
+              <li className="float-left">
                 <label
                   htmlFor="Toggle2"
                   className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
@@ -92,31 +104,10 @@ function Navbar() {
                   </span>
                 </label>
               </li>
-
-
-
-            {/* extra */}
-            <div className="mt-3 space-y-2 hidden md:block">
-              <Link
-                to="/login"
-                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-              >
-                Login
-              </Link>
-              </div>
             </ul>
 
-
-
             <div className="mt-3 space-y-2 md:hidden">
-              <Link
-                to="/login"
-                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-              >
-                Login
-              </Link>
-
-              {/* {user ? (
+              {user ? (
                 <>
                   <div className="flex justify-center gap-5 items-center">
                     <img
@@ -126,9 +117,9 @@ function Navbar() {
                           ? user.photoURL
                           : "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
                       }
+                      referrerPolicy="no-referrer"
                       alt=""
                     />
-                    <p>{user ? user.displayName : null}</p>
                   </div>
                   <Link
                     onClick={handleLogOut}
@@ -145,24 +136,26 @@ function Navbar() {
                 >
                   Login
                 </Link>
-              )} */}
+              )}
             </div>
+
           </div>
         </div>
-        {/* <div className="hidden space-x-2 md:inline-block">
+
+
+        <div className="hidden space-x-2 md:inline-block">
           {user ? (
             <div className="flex gap-3 items-center">
-              <p>{user ? user.displayName : null}</p>
               <img
-                      className="w-12 h-12 rounded-full"
-                      src={
-                        user.photoURL
-                          ? user.photoURL
-                          : "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
-                      }
-                      referrerPolicy='no-referrer'
-                      alt=""
-                    />
+                className="w-12 h-12 rounded-full"
+                src={
+                  user.photoURL
+                    ? user.photoURL
+                    : "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
+                }
+                referrerPolicy="no-referrer"
+                alt=""
+              />
               <Link
                 onClick={handleLogOut}
                 to=""
@@ -179,7 +172,11 @@ function Navbar() {
               Login
             </Link>
           )}
-        </div> */}
+        </div>
+
+
+
+
       </div>
     </nav>
   );
