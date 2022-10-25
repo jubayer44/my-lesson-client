@@ -10,6 +10,7 @@ import FAQ from "../Pages/FAQ";
 import { Home } from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/courses",
-          element: <Courses/>,
+          element: <PrivateRoutes><Courses/></PrivateRoutes>,
           loader: ()=> fetch('http://localhost:5000/')
         },
         {

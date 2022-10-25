@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Images/logo.png";
+import { FaAmazon } from "react-icons/fa";
 
 function Navbar() {
   const {user, logOut} = useContext(AuthContext);
@@ -115,7 +116,7 @@ function Navbar() {
                       src={
                         user.photoURL
                           ? user.photoURL
-                          : "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
+                          : <FaAmazon/>
                       }
                       referrerPolicy="no-referrer"
                       alt=""
@@ -151,7 +152,7 @@ function Navbar() {
                 src={
                   user.photoURL
                     ? user.photoURL
-                    : "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
+                    : <FaAmazon/>
                 }
                 referrerPolicy="no-referrer"
                 alt=""
