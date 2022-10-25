@@ -8,12 +8,12 @@ const Courses = () => {
     <div>
       <div className="h-full md:grid grid-cols-12 gap-10 my-10">
         <div className="col-span-3 space-y-3 ">
-          <h2 className="text-center p-2">All Course</h2>
+          <h2 className="text-center text-2xl font-bold p-2">All Course</h2>
 
           <div className="flex-1">
             <ul className="pt-2 pb-4 space-y-1 text-sm">
               {coursesData?.map((courseCard) => (
-                <li className="rounded-sm  bg-gray-100 mb-3" key={courseCard.id}>
+                <li className="rounded-sm  mb-3" key={courseCard.id}>
                   <Link 
                     rel="noopener noreferrer"
                     to={`/course/${courseCard.id}`}
@@ -42,7 +42,7 @@ const Courses = () => {
                       />
                       <div className="px-6 py-8">
                         <h4 className="mt-4 text-2xl font-semibold text-neutral-600">
-                          <span className="">{courseCard.title}</span>
+                          <span className="text-gray-600">{courseCard.title}</span>
                         </h4>
                         <div className="mt-4 text-base font-normal text-gray-500 leading-relax">
                           {courseCard.description.length > 110 ? (

@@ -3,7 +3,7 @@ import React from "react";
 const Feature = () => {
   return (
     <section className="p-4 lg:p-8  bg-gray-200">
-        <h2 className="text-2xl font-bold text-center mb-6">It's Not What You Sell That Matters as Much as How You Sell It!</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">It's Not What You Sell That Matters as Much as How You Sell It!</h2>
       <div className="container mx-auto space-y-12">
         <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
           <img
@@ -13,7 +13,7 @@ const Feature = () => {
           />
           <div className="flex flex-col justify-center flex-1 p-6 ">
             
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-2xl font-bold text-gray-700">
             Digital Marketing Agency
             </h3>
             <p className="my-6 dark:text-gray-700">
@@ -29,7 +29,7 @@ const Feature = () => {
           />
           <div className="flex flex-col justify-center flex-1 p-6 0">
             
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-2xl font-bold text-gray-700">
             Old’ Marketing
             </h3>
             <p className="my-6 dark:text-gray-700">

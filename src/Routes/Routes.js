@@ -32,18 +32,18 @@ const router = createBrowserRouter([
         },
         {
           path: "/courses",
-          element: <PrivateRoutes><Courses/></PrivateRoutes>,
-          loader: ()=> fetch('http://localhost:5000/')
+          element: <Courses/>,
+          loader: ()=> fetch('https://my-lesson-server-jubayer44.vercel.app/')
         },
         {
           path: "/course/:id",
           element: <CourseDetails/>,
-          loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+          loader: ({params}) => fetch(`https://my-lesson-server-jubayer44.vercel.app/course/${params.id}`)
         },
         {
           path: "/checkout/:id",
-          element: <Checkout/>,
-          loader: ({params}) => fetch(`http://localhost:5000/checkout/${params.id}`)
+          element: <PrivateRoutes><Checkout/></PrivateRoutes>,
+          loader: ({params}) => fetch(`https://my-lesson-server-jubayer44.vercel.app/checkout/${params.id}`)
         },
         {
           path: "/contact",

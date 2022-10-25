@@ -37,6 +37,7 @@ const Register = () => {
         setError({ ...error, general: "" });
         form.reset();
         toast.success("Register Success");
+        navigate(from, {replace: true});
       })
       .catch((err) => {
         setError({ ...error, general: err.message });

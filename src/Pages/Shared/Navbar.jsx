@@ -2,12 +2,15 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Images/logo.png";
-import { FaAmazon } from "react-icons/fa";
+import { ToggleMode } from "../../Layout/Main";
 
 function Navbar() {
   const {user, logOut} = useContext(AuthContext);
+  const {toggle, setToggle} = useContext(ToggleMode);
   const [navbar, setNavbar] = useState(false);
 
+
+  console.log(toggle);
 
   const handleLogOut = () => {
     logOut()
@@ -94,8 +97,10 @@ function Navbar() {
                   htmlFor="Toggle2"
                   className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
                 >
-                  <span className="relative">
+                  <span
+                  className="relative">
                     <input
+                    onClick={()=>setToggle(!toggle)}
                       id="Toggle2"
                       type="checkbox"
                       className="hidden peer"
@@ -113,10 +118,11 @@ function Navbar() {
                   <div className="flex justify-center gap-5 items-center">
                     <img
                       className="w-12 h-12 rounded-full"
+                      // title={user.displayName}
                       src={
-                        user.photoURL
+                        user
                           ? user.photoURL
-                          : <FaAmazon/>
+                          : "https://www.clipartmax.com/png/middle/424-4242023_fa-user-circle-icon.png"
                       }
                       referrerPolicy="no-referrer"
                       alt=""
@@ -149,10 +155,11 @@ function Navbar() {
             <div className="flex gap-3 items-center">
               <img
                 className="w-12 h-12 rounded-full"
+                title={user?.displayName}
                 src={
-                  user.photoURL
+                  user
                     ? user.photoURL
-                    : <FaAmazon/>
+                    : "https://www.clipartmax.com/png/middle/424-4242023_fa-user-circle-icon.png"
                 }
                 referrerPolicy="no-referrer"
                 alt=""

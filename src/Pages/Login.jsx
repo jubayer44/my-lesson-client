@@ -36,7 +36,7 @@ const Login = () => {
         console.log(res.user);
         navigate(from, {replace: true});
       })
-      .then((err) => console.log(err.message));
+      .then((err) => console.log(err));
   };
 
   return (
