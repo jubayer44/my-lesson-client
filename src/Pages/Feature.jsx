@@ -3,7 +3,7 @@ import React from "react";
 const Feature = () => {
   return (
     <section className="p-4 lg:p-8  bg-gray-200">
-        <h2 className="text-2xl font-semibold text-center font-sans mb-6">It's not what you sell that matters as much as how you sell it!</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">It's Not What You Sell That Matters as Much as How You Sell It!</h2>
       <div className="container mx-auto space-y-12">
         <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
           <img
