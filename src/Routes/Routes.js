@@ -32,10 +32,12 @@ const router = createBrowserRouter([
         {
           path: "/courses",
           element: <Courses/>,
+          loader: ()=> fetch('http://localhost:5000/')
         },
         {
-          path: "/courseDetails",
+          path: "/course/:id",
           element: <CourseDetails/>,
+          loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
         },
         {
           path: "/checkout",
