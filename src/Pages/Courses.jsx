@@ -5,7 +5,7 @@ const Courses = () => {
   const coursesData = useLoaderData();
 
   return (
-    <div>
+    <div className="p-4">
       <div className="h-full md:grid grid-cols-12 gap-10 my-10">
         <div className="col-span-3 space-y-3 ">
           <h2 className="text-center text-2xl font-bold p-2">All Course</h2>
@@ -29,7 +29,7 @@ const Courses = () => {
 
         <div className="col-span-9">
           <section className="">
-            <div className="flex flex-wrap mx-auto md:flex-wrap gap-10 p-12 lg:ml-14">
+            <div className="flex flex-wrap mx-auto md:flex-wrap gap-10 lg:ml-14">
               {coursesData?.map((courseCard) => (
                 <div key={courseCard.id} to="/courseDetails">
                   <div className="flex w-full">
