@@ -9,7 +9,6 @@ function Navbar() {
   const { toggle, setToggle } = useContext(ToggleMode);
   const [navbar, setNavbar] = useState(false);
 
-  console.log(toggle);
 
   const handleLogOut = () => {
     logOut()

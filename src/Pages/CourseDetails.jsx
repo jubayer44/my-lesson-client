@@ -1,26 +1,32 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { FaDownload } from "react-icons/fa";
+import PDFFile from "./PDFFile";
+import Pdf from "react-to-pdf";
+
+
+const ref = React.createRef();
+
+
 
 const CourseDetails = () => {
   const singleCourses = useLoaderData();
   const { id, title, image, description, price } = singleCourses;
 
   return (
-    <section>
+    <section ref={ref}>
       <div className="pb-4 border-b border-gray-600 mt-10">
         <h3 className="text-xl text-center font-semibold leading-6 text-gray-800">
           {title} Details
         </h3>
       </div>
 
-      <div className="relative mx-auto max-w-7xl">
-        <div className="max-w-lg mx-auto mt-12">
+      <div className="relative mx-auto">
+        <div className=" mx-auto mt-12">
           <div className="flex flex-col mb-12 overflow-hidden p-3 shadow-lg">
             <div>
               <div className="flex-shrink-0">
                 <img
-                  className="object-cover w-full h-48 rounded-lg"
+                  className="object-cover w-full h-48 md:h-96 rounded-lg"
                   src={image}
                   alt=""
                 />
@@ -34,7 +40,16 @@ const CourseDetails = () => {
                       {title}
                     </h3>
                   </Link>
-                  <Link to=""><FaDownload/></Link>
+
+                  <PDFFile courses={singleCourses} />
+
+
+                  <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+      </Pdf>
+
+
+
                 </div>
                 <p className="text-blue-500 font-semibold">Price: ${price}</p>
                 <p className="text-lg font-normal  my-4">{description}</p>
