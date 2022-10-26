@@ -4,39 +4,60 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Login = () => {
-  const { googleLogIn, loginUser } = useContext(AuthContext);
+  const { googleLogIn, gitHubLogIn, loginUser, resetPassword } =
+    useContext(AuthContext);
   const [userInfo, setUserInfo] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
-  const navigate = useNavigate()
-  const location = useLocation()
-  const from = location?.state?.from?.pathname || '/';
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     loginUser(userInfo.email, userInfo.password)
-    .then(() => {
+      .then(() => {
         form.reset();
         toast.success("Login SUccess");
-		navigate(from, {replace: true});
-    })
-    .catch(err => {
-        console.log(err);
+        navigate(from, { replace: true });
+      })
+      .catch(() => {
         form.reset();
         toast.error("User Not Found");
-    })
+      });
   };
 
   const handleGoogleLogin = () => {
     googleLogIn()
-      .then((res) => {
-        console.log(res.user);
-        navigate(from, {replace: true});
+      .then(() => {
+        toast.success("Login Success");
+        navigate(from, { replace: true });
       })
-      .then((err) => console.log(err));
+      .then((err) => toast.error(err.message));
+  };
+
+  const handleGitHubLogin = () => {
+    gitHubLogIn()
+      .then(() => {
+        toast.success("Login SUccess");
+        navigate(from, { replace: true });
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
+  const handleResetPassword = () => {
+    resetPassword(userInfo.email)
+      .then(() => {
+        toast.success("Password Reset Success Please Check Your Email");
+      })
+      .catch((err) => {
+        toast.error("User Not Found");
+      });
   };
 
   return (
@@ -53,8 +74,11 @@ const Login = () => {
             <div className="mt-8">
               <div className="mt-6">
                 <form
-                onSubmit={handleSubmit}
-                action="#" method="POST" className="space-y-6">
+                  onSubmit={handleSubmit}
+                  action="#"
+                  method="POST"
+                  className="space-y-6"
+                >
                   <div>
                     <label
                       htmlFor="email"
@@ -65,7 +89,9 @@ const Login = () => {
                     </label>
                     <div className="mt-1">
                       <input
-                      onChange={(e)=> setUserInfo({...userInfo, email: e.target.value})}
+                        onChange={(e) =>
+                          setUserInfo({ ...userInfo, email: e.target.value })
+                        }
                         id="email"
                         name="email"
                         type="email"
@@ -87,7 +113,9 @@ const Login = () => {
                     </label>
                     <div className="mt-1">
                       <input
-                      onChange={(e)=> setUserInfo({...userInfo, password: e.target.value})}
+                        onChange={(e) =>
+                          setUserInfo({ ...userInfo, password: e.target.value })
+                        }
                         id="password"
                         name="password"
                         type="password"
@@ -102,7 +130,8 @@ const Login = () => {
                   <div className="flex items-center justify-between">
                     <div className="text-sm">
                       <Link
-                        to="/"
+                        onClick={handleResetPassword}
+                        to="/login"
                         className="font-medium text-blue-600 hover:text-blue-500"
                       >
                         {" "}
@@ -138,7 +167,10 @@ const Login = () => {
                   >
                     Log in with Google
                   </button>
-                  <button className=" btn btn-outline btn-info w-full">
+                  <button
+                    onClick={handleGitHubLogin}
+                    className=" btn btn-outline btn-info w-full"
+                  >
                     Log in with GitHub
                   </button>
                   <p className="mt-4">

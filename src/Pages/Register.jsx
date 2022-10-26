@@ -4,7 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Register = () => {
-  const { googleLogIn, createUser, updateUser } = useContext(AuthContext);
+  const { googleLogIn, gitHubLogIn, createUser, updateUser } =
+    useContext(AuthContext);
   const [userInfo, setUserInfo] = useState({
     name: "",
     photoURL: "",
@@ -18,30 +19,27 @@ const Register = () => {
     general: "",
   });
 
-  const navigate = useNavigate()
-  const location = useLocation()
-  const from = location?.state?.from?.pathname || '/';
-
-  // console.log(userInfo.name, userInfo.photoURL);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     createUser(userInfo.email, userInfo.password)
       .then(() => {
-
         updateUser(userInfo.name, userInfo.photoURL)
-        .then(() => {})
-        .catch(()=> {});
+          .then(() => {})
+          .catch(() => {});
 
         setError({ ...error, general: "" });
         form.reset();
         toast.success("Register Success");
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError({ ...error, general: err.message });
-        toast.error("email-already-in-use");
+        toast.error(err.message);
         form.reset();
       });
   };
@@ -99,12 +97,20 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleLogIn()
       .then((res) => {
-        console.log(res.user);
         toast.success("Login SUccess");
-		navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((err) => toast.error(err.message));
+  };
+
+  const handleGitHubLogin = () => {
+    gitHubLogIn()
+      .then(() => {
+        toast.success("Login SUccess");
+        navigate(from, { replace: true });
+      })
+      .catch((e) => {
+        toast.error(e.message);
       });
   };
 
@@ -249,7 +255,10 @@ const Register = () => {
                   >
                     Log in with Google
                   </button>
-                  <button className=" btn btn-outline btn-info w-full">
+                  <button
+                    onClick={handleGitHubLogin}
+                    className=" btn btn-outline btn-info w-full"
+                  >
                     Log in with GitHub
                   </button>
                   <p className="mt-4">

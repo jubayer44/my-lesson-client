@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Courses = () => {
   const coursesData = useLoaderData();
-  
+
   return (
     <div>
       <div className="h-full md:grid grid-cols-12 gap-10 my-10">
@@ -14,7 +14,7 @@ const Courses = () => {
             <ul className="pt-2 pb-4 space-y-1 text-sm">
               {coursesData?.map((courseCard) => (
                 <li className="rounded-sm  mb-3" key={courseCard.id}>
-                  <Link 
+                  <Link
                     rel="noopener noreferrer"
                     to={`/course/${courseCard.id}`}
                     className="flex font-semibold items-center p-2 space-x-3 rounded-md"
@@ -30,7 +30,6 @@ const Courses = () => {
         <div className="col-span-9">
           <section className="">
             <div className="flex flex-wrap mx-auto md:flex-wrap gap-10 p-12 lg:ml-14">
-              
               {coursesData?.map((courseCard) => (
                 <div key={courseCard.id} to="/courseDetails">
                   <div className="flex w-full">
@@ -42,7 +41,9 @@ const Courses = () => {
                       />
                       <div className="px-6 py-8">
                         <h4 className="mt-4 text-2xl font-semibold text-neutral-600">
-                          <span className="text-gray-600">{courseCard.title}</span>
+                          <span className="text-gray-600">
+                            {courseCard.title}
+                          </span>
                         </h4>
                         <div className="mt-4 text-base font-normal text-gray-500 leading-relax">
                           {courseCard.description.length > 110 ? (
@@ -59,9 +60,11 @@ const Courses = () => {
                             courseCard.description
                           )}
                         </div>
-                        <Link to={`/course/${courseCard.id}`}><button className="btn btn-outline btn-info w-full mt-4">
-                          Details
-                        </button></Link>
+                        <Link to={`/course/${courseCard.id}`}>
+                          <button className="btn btn-outline btn-info w-full mt-4">
+                            Details
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

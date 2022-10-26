@@ -16,48 +16,58 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
-        {
-            path: "/",
-            element: <Home/>
-        },
-        {
-          path: "/login",
-          element: <Login/>
-        },
-        {
-          path: "/register",
-          element: <Register/>
-        },
-        {
-          path: "/courses",
-          element: <Courses/>,
-          loader: ()=> fetch('https://my-lesson-server-jubayer44.vercel.app/')
-        },
-        {
-          path: "/course/:id",
-          element: <CourseDetails/>,
-          loader: ({params}) => fetch(`https://my-lesson-server-jubayer44.vercel.app/course/${params.id}`)
-        },
-        {
-          path: "/checkout/:id",
-          element: <PrivateRoutes><Checkout/></PrivateRoutes>,
-          loader: ({params}) => fetch(`https://my-lesson-server-jubayer44.vercel.app/checkout/${params.id}`)
-        },
-        {
-          path: "/contact",
-          element: <ContactUs/>,
-        },
-        {
-          path: "/faq",
-          element: <FAQ/>,
-        },
-        {
-          path: "blog",
-          element: <Blog/>,
-        }
-    ]
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/courses",
+        element: <Courses />,
+        loader: () => fetch("https://my-lesson-server-jubayer44.vercel.app/"),
+      },
+      {
+        path: "/course/:id",
+        element: <CourseDetails />,
+        loader: ({ params }) =>
+          fetch(
+            `https://my-lesson-server-jubayer44.vercel.app/course/${params.id}`
+          ),
+      },
+      {
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoutes>
+            <Checkout />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://my-lesson-server-jubayer44.vercel.app/checkout/${params.id}`
+          ),
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "/faq",
+        element: <FAQ />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+      },
+    ],
   },
 ]);
 

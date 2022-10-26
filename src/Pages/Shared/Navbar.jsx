@@ -5,21 +5,17 @@ import logo from "../../Images/logo.png";
 import { ToggleMode } from "../../Layout/Main";
 
 function Navbar() {
-  const {user, logOut} = useContext(AuthContext);
-  const {toggle, setToggle} = useContext(ToggleMode);
+  const { user, logOut } = useContext(AuthContext);
+  const { toggle, setToggle } = useContext(ToggleMode);
   const [navbar, setNavbar] = useState(false);
-
 
   console.log(toggle);
 
   const handleLogOut = () => {
     logOut()
-    .then(() => {})
-    .catch(() => {})
-  }
-
-
-
+      .then(() => {})
+      .catch(() => {});
+  };
 
   return (
     <nav className="w-full shadow">
@@ -97,10 +93,9 @@ function Navbar() {
                   htmlFor="Toggle2"
                   className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
                 >
-                  <span
-                  className="relative">
+                  <span className="relative">
                     <input
-                    onClick={()=>setToggle(!toggle)}
+                      onClick={() => setToggle(!toggle)}
                       id="Toggle2"
                       type="checkbox"
                       className="hidden peer"
@@ -145,10 +140,8 @@ function Navbar() {
                 </Link>
               )}
             </div>
-
           </div>
         </div>
-
 
         <div className="hidden space-x-2 md:inline-block">
           {user ? (
@@ -181,10 +174,6 @@ function Navbar() {
             </Link>
           )}
         </div>
-
-
-
-
       </div>
     </nav>
   );
