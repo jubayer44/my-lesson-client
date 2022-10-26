@@ -17,7 +17,7 @@ const Courses = () => {
                   <Link
                     rel="noopener noreferrer"
                     to={`/course/${courseCard.id}`}
-                    className="flex font-semibold items-center p-2 space-x-3 rounded-md"
+                    className="flex font-semibold underline md:text-[15px] items-center p-2 space-x-3 rounded-md"
                   >
                     <span>{courseCard.title}</span>
                   </Link>

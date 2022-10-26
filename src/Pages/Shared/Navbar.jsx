@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Images/logo.png";
 import { ToggleMode } from "../../Layout/Main";
 
-function Navbar() {
+const  Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const { toggle, setToggle } = useContext(ToggleMode);
   const [navbar, setNavbar] = useState(false);
@@ -24,7 +24,7 @@ function Navbar() {
             <div className="flex">
               <img className="w-8 mr-4 rounded-full" src={logo} alt="" />
               <Link to="/">
-                <h2 className="text-2xl font-bold ">My Lesson</h2>
+                <h2 className="text-2xl font-bold font-serif text-green-400">My Lesson</h2>
               </Link>
             </div>
             <div className="md:hidden">
@@ -72,19 +72,19 @@ function Navbar() {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <li className="">
+              <li className="font-semibold">
                 <Link to="/">Home</Link>
               </li>
-              <li className="">
+              <li className="font-semibold">
                 <Link to="/courses">Courses</Link>
               </li>
-              <li className="">
+              <li className="font-semibold">
                 <Link to="/blog">Blog</Link>
               </li>
-              <li className="">
+              <li className="font-semibold">
                 <Link to="/faq">FAQ</Link>
               </li>
-              <li className="">
+              <li className="font-semibold">
                 <Link to="/contact">Contact US</Link>
               </li>
               <li className="float-left">

@@ -7,8 +7,6 @@ import img from "../Images/pdf-img.jpg";
 const PDFFile = ({ courses }) => {
   const { title, description } = courses;
 
-  console.log(courses);
-
   const pdfGenerate = () => {
     const doc = new jsPDF("landscape", "px", "a4", "false");
     doc.addImage(img, "JPG", 65, 20, 500, 400);
@@ -22,7 +20,7 @@ const PDFFile = ({ courses }) => {
   return (
     <div style={{ textAlign: "center" }}>
       <Link to="" onClick={pdfGenerate}>
-        <FaDownload className="text-[30px]" />
+        <FaDownload className="text-[30px] mr-6" />
       </Link>
     </div>
   );
