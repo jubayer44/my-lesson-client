@@ -4,11 +4,10 @@ import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Images/logo.png";
 import { ToggleMode } from "../../Layout/Main";
 
-const  Navbar = () => {
+const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const { toggle, setToggle } = useContext(ToggleMode);
   const [navbar, setNavbar] = useState(false);
-
 
   const handleLogOut = () => {
     logOut()
@@ -24,7 +23,9 @@ const  Navbar = () => {
             <div className="flex">
               <img className="w-8 mr-4 rounded-full" src={logo} alt="" />
               <NavLink to="/">
-                <h2 className="text-2xl font-bold font-serif text-green-400">My Lesson</h2>
+                <h2 className="text-2xl font-bold font-serif text-green-400">
+                  My Lesson
+                </h2>
               </NavLink>
             </div>
             <div className="md:hidden">
@@ -73,28 +74,79 @@ const  Navbar = () => {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="font-semibold">
-                <NavLink  to="/home" 
-                style={({ isActive }) =>
-                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined}
-                >Home</NavLink>
+                <NavLink
+                  to="/home"
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textDecoration: "underline",
+                          textDecorationThickness: "2px",
+                        }
+                      : undefined
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="font-semibold">
-                <NavLink 
-                style={({ isActive }) =>
-                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined}
-                to="/courses">Courses</NavLink>
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textDecoration: "underline",
+                          textDecorationThickness: "2px",
+                        }
+                      : undefined
+                  }
+                  to="/courses"
+                >
+                  Courses
+                </NavLink>
               </li>
               <li className="font-semibold">
-                <NavLink style={({ isActive }) =>
-                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined} to="/blog">Blog</NavLink>
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textDecoration: "underline",
+                          textDecorationThickness: "2px",
+                        }
+                      : undefined
+                  }
+                  to="/blog"
+                >
+                  Blog
+                </NavLink>
               </li>
               <li className="font-semibold">
-                <NavLink style={({ isActive }) =>
-                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined} to="/faq">FAQ</NavLink>
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textDecoration: "underline",
+                          textDecorationThickness: "2px",
+                        }
+                      : undefined
+                  }
+                  to="/faq"
+                >
+                  FAQ
+                </NavLink>
               </li>
               <li className="font-semibold">
-                <NavLink style={({ isActive }) =>
-                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined} to="/contact">Contact US</NavLink>
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textDecoration: "underline",
+                          textDecorationThickness: "2px",
+                        }
+                      : undefined
+                  }
+                  to="/contact"
+                >
+                  Contact US
+                </NavLink>
               </li>
               <li className="float-left">
                 <label
@@ -185,6 +237,6 @@ const  Navbar = () => {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

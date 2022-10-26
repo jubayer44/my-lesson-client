@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from '../../Images/logo.png'
+import img from "../../Images/logo.png";
 
 const Footer = () => {
   return (
@@ -13,9 +13,11 @@ const Footer = () => {
             className="flex justify-center space-x-3 lg:justify-start"
           >
             <div className="flex items-center justify-center w-12 h-12 rounded-full">
-             <img src={img} alt="" />
+              <img src={img} alt="" />
             </div>
-            <span className="self-center text-2xl font-semibold font-serif text-green-400">My Lesson</span>
+            <span className="self-center text-2xl font-semibold font-serif text-green-400">
+              My Lesson
+            </span>
           </Link>
         </div>
         <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">

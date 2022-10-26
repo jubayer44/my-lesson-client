@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import img from "../Images/banner.png";
 import Feature from "./Feature";
 
@@ -24,12 +25,12 @@ export const Home = () => {
               </p>
             </div>
             <div>
-              <a
-                href="/courses"
+              <Link
+                to="/courses"
                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
               >
                 Get started
-              </a>
+              </Link>
             </div>
           </div>
         </div>

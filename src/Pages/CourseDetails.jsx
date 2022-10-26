@@ -3,7 +3,6 @@ import { Link, useLoaderData } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import PDFFile from "./PDFFile";
 
-
 const CourseDetails = () => {
   const singleCourses = useLoaderData();
   const { id, title, image, description, price, rating } = singleCourses;
@@ -37,9 +36,6 @@ const CourseDetails = () => {
                     </h3>
                   </Link>
                   <PDFFile courses={singleCourses} />
-
-                 
-
                 </div>
                 <div className="flex gap-5">
                   <p className="text-blue-500 font-semibold">Price: ${price}</p>

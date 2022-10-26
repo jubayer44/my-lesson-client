@@ -54,9 +54,7 @@ const Blog = () => {
           in question; otherwise, redirect the user to sign-in page.
           Additionally, we can define the logic of isLogin utility function
           separately in utils folder. <br />
-          <p>
-            1. Home: A public route that everyone can access to.
-          </p>
+          <p>1. Home: A public route that everyone can access to.</p>
           <p>
             2. Dashboard: A private route that only authenticated user can
             access to.

@@ -9,7 +9,11 @@ const ContactUs = () => {
             Contact with us
           </h2>
         </div>
-        <img src="https://images.theconversation.com/files/415311/original/file-20210809-25-149neyb.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop" alt="" className="p-2 mt-10 h-full md:h-full" />
+        <img
+          src="https://images.theconversation.com/files/415311/original/file-20210809-25-149neyb.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop"
+          alt=""
+          className="p-2 mt-10 h-full md:h-full"
+        />
       </div>
       <form
         noValidate=""

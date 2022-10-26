@@ -168,10 +168,10 @@ const Checkout = () => {
                 </div>
 
                 <div className="mt-4">
-                  <Link to='/'>
-                  <button className="w-full btn btn-outline btn-primary">
-                    Process
-                  </button>
+                  <Link to="/">
+                    <button className="w-full btn btn-outline btn-primary">
+                      Process
+                    </button>
                   </Link>
                 </div>
               </div>
