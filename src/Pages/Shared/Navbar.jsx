@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Images/logo.png";
 import { ToggleMode } from "../../Layout/Main";
@@ -23,9 +23,9 @@ const  Navbar = () => {
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <div className="flex">
               <img className="w-8 mr-4 rounded-full" src={logo} alt="" />
-              <Link to="/">
+              <NavLink to="/">
                 <h2 className="text-2xl font-bold font-serif text-green-400">My Lesson</h2>
-              </Link>
+              </NavLink>
             </div>
             <div className="md:hidden">
               <button
@@ -73,19 +73,28 @@ const  Navbar = () => {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="font-semibold">
-                <Link to="/">Home</Link>
+                <NavLink  to="/home" 
+                style={({ isActive }) =>
+                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined}
+                >Home</NavLink>
               </li>
               <li className="font-semibold">
-                <Link to="/courses">Courses</Link>
+                <NavLink 
+                style={({ isActive }) =>
+                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined}
+                to="/courses">Courses</NavLink>
               </li>
               <li className="font-semibold">
-                <Link to="/blog">Blog</Link>
+                <NavLink style={({ isActive }) =>
+                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined} to="/blog">Blog</NavLink>
               </li>
               <li className="font-semibold">
-                <Link to="/faq">FAQ</Link>
+                <NavLink style={({ isActive }) =>
+                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined} to="/faq">FAQ</NavLink>
               </li>
               <li className="font-semibold">
-                <Link to="/contact">Contact US</Link>
+                <NavLink style={({ isActive }) =>
+                isActive ? {textDecoration: 'underline', textDecorationThickness: '2px'} : undefined} to="/contact">Contact US</NavLink>
               </li>
               <li className="float-left">
                 <label
@@ -122,21 +131,21 @@ const  Navbar = () => {
                       alt=""
                     />
                   </div>
-                  <Link
+                  <NavLink
                     onClick={handleLogOut}
                     to="/login"
                     className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                   >
                     Log Out
-                  </Link>
+                  </NavLink>
                 </>
               ) : (
-                <Link
+                <NavLink
                   to="/login"
                   className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                 >
                   Login
-                </Link>
+                </NavLink>
               )}
             </div>
           </div>
@@ -156,21 +165,21 @@ const  Navbar = () => {
                 referrerPolicy="no-referrer"
                 alt=""
               />
-              <Link
+              <NavLink
                 onClick={handleLogOut}
                 to=""
                 className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
               >
                 Log Out
-              </Link>
+              </NavLink>
             </div>
           ) : (
-            <Link
+            <NavLink
               to="/login"
               className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
             >
               Login
-            </Link>
+            </NavLink>
           )}
         </div>
       </div>
