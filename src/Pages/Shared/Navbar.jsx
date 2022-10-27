@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Images/logo.png";
 import { ToggleMode } from "../../Layout/Main";
@@ -170,8 +170,9 @@ const Navbar = () => {
             <div className="mt-3 space-y-2 md:hidden">
               {user ? (
                 <>
-                  <div className="flex justify-center gap-5 items-center tooltip tooltip-top"
-                  data-tip={user?.displayName}
+                  <Link to="/profile"
+                    className="flex justify-center gap-5 items-center tooltip tooltip-top"
+                    data-tip={user?.displayName}
                   >
                     <img
                       className="w-12 h-12 rounded-full"
@@ -184,7 +185,7 @@ const Navbar = () => {
                       referrerPolicy="no-referrer"
                       alt=""
                     />
-                  </div>
+                  </Link>
                   <NavLink
                     onClick={handleLogOut}
                     to="/login"
@@ -208,18 +209,22 @@ const Navbar = () => {
         <div className="hidden space-x-2 md:inline-block">
           {user ? (
             <div className="flex gap-3 items-center">
-              <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-              <img
-                className="w-12 h-12 rounded-full"
-                src={
-                  user?.photoURL
-                    ? user.photoURL
-                    : "https://www.clipartmax.com/png/middle/424-4242023_fa-user-circle-icon.png"
-                }
-                referrerPolicy="no-referrer"
-                alt=""
-              />
-              </div>
+              <Link to="/profile"
+              
+                className="tooltip tooltip-bottom"
+                data-tip={user?.displayName}
+              >
+                <img
+                  className="w-12 h-12 rounded-full"
+                  src={
+                    user?.photoURL
+                      ? user.photoURL
+                      : "https://www.clipartmax.com/png/middle/424-4242023_fa-user-circle-icon.png"
+                  }
+                  referrerPolicy="no-referrer"
+                  alt=""
+                />
+              </Link>
               <NavLink
                 onClick={handleLogOut}
                 to=""

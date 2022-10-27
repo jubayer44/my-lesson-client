@@ -24,7 +24,7 @@ const Checkout = () => {
                   <div className="w-full lg:w-1/2">
                     <label
                       htmlFor="firstName"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       First Name
                     </label>
@@ -38,7 +38,7 @@ const Checkout = () => {
                   <div className="w-full lg:w-1/2 ">
                     <label
                       htmlFor="firstName"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       Last Name
                     </label>
@@ -54,7 +54,7 @@ const Checkout = () => {
                   <div className="w-full">
                     <label
                       htmlFor="Email"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       Email
                     </label>
@@ -71,7 +71,7 @@ const Checkout = () => {
                   <div className="w-full">
                     <label
                       htmlFor="card"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       Name of Card
                     </label>
@@ -87,7 +87,7 @@ const Checkout = () => {
                   <div className="w-full">
                     <label
                       htmlFor="card"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       Card Number
                     </label>
@@ -104,7 +104,7 @@ const Checkout = () => {
                   <div className="w-full ">
                     <label
                       htmlFor="firstName"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       Expiration Date (month)
                     </label>
@@ -127,7 +127,7 @@ const Checkout = () => {
                   <div className="w-full ">
                     <label
                       htmlFor="firstName"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       Expiration Date (year)
                     </label>
@@ -142,7 +142,7 @@ const Checkout = () => {
                   <div className="w-full ">
                     <label
                       htmlFor="firstName"
-                      className="block mb-3 text-sm font-semibold text-gray-500"
+                      className="block mb-3 text-sm font-semibold "
                     >
                       CCV
                     </label>

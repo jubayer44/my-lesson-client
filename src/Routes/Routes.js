@@ -9,6 +9,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import FAQ from "../Pages/FAQ";
 import { Home } from "../Pages/Home";
 import Login from "../Pages/Login";
+import Profile from "../Pages/Profile";
 import Register from "../Pages/Register";
 import PrivateRoutes from "./PrivateRoutes";
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <Blog />,
       },
+      {
+        path: "/profile",
+        element: <Profile/>
+      }
     ],
   },
 ]);
