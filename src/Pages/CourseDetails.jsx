@@ -9,10 +9,11 @@ const CourseDetails = () => {
 
   return (
     <section>
-      <div className="pb-4 border-b border-gray-600 mt-10 w-80% mx-auto">
+      <div className="pb-4 border-b border-gray-600 mt-10 w-80% mx-auto flex justify-between px-2">
         <h3 className="text-xl md:text-4xl text-center font-bold leading-6 font-serif">
           {title} Details
         </h3>
+        <PDFFile courses={singleCourses} />
       </div>
 
       <div className="relative mx-auto w-80%">
@@ -35,7 +36,7 @@ const CourseDetails = () => {
                       {title}
                     </h3>
                   </Link>
-                  <PDFFile courses={singleCourses} />
+                  
                 </div>
                 <div className="flex gap-5">
                   <p className="text-blue-500 font-semibold">Price: ${price}</p>

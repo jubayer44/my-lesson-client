@@ -69,7 +69,7 @@ const Register = () => {
     const noCapitalLetterError = !/[A-Z]{1,}/.test(password);
 
     if (lengthError) {
-      setError({ ...error, password: "password must be at last 6 character" });
+      setError({ ...error, password: "password must be at least 6 character" });
       setUserInfo({ ...userInfo, password: "" });
       return;
     }
@@ -77,14 +77,14 @@ const Register = () => {
     if (noSymbolError) {
       setError({
         ...error,
-        password: "must be use at last 1 special character",
+        password: "must be use at least 1 special character",
       });
       setUserInfo({ ...userInfo, password: "" });
       return;
     }
 
     if (noCapitalLetterError) {
-      setError({ ...error, password: "must be use at last 1 uppercase" });
+      setError({ ...error, password: "must be use at least 1 uppercase" });
       setUserInfo({ ...userInfo, password: "" });
       return;
     }
