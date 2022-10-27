@@ -170,12 +170,14 @@ const Navbar = () => {
             <div className="mt-3 space-y-2 md:hidden">
               {user ? (
                 <>
-                  <div className="flex justify-center gap-5 items-center">
+                  <div className="flex justify-center gap-5 items-center tooltip tooltip-top"
+                  data-tip={user?.displayName}
+                  >
                     <img
                       className="w-12 h-12 rounded-full"
-                      // title={user.displayName}
+                      title={user?.displayName}
                       src={
-                        user
+                        user?.photoURL
                           ? user.photoURL
                           : "https://www.clipartmax.com/png/middle/424-4242023_fa-user-circle-icon.png"
                       }
@@ -206,17 +208,18 @@ const Navbar = () => {
         <div className="hidden space-x-2 md:inline-block">
           {user ? (
             <div className="flex gap-3 items-center">
+              <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
               <img
                 className="w-12 h-12 rounded-full"
-                title={user?.displayName}
                 src={
-                  user
+                  user?.photoURL
                     ? user.photoURL
                     : "https://www.clipartmax.com/png/middle/424-4242023_fa-user-circle-icon.png"
                 }
                 referrerPolicy="no-referrer"
                 alt=""
               />
+              </div>
               <NavLink
                 onClick={handleLogOut}
                 to=""

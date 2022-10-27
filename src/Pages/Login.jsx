@@ -36,7 +36,7 @@ const Login = () => {
         toast.success("Login Success");
         navigate(from, { replace: true });
       })
-      .then((err) => toast.error(err.message));
+      .then((err) => toast.error(err?.message));
   };
 
   const handleGitHubLogin = () => {
